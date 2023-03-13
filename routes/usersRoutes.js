@@ -37,7 +37,8 @@ router.post('', async function (req, res, next) {
     }
 });
 
-router.delete('/auth', auth.verifyAuth, async function (req, res, next) {
+router.delete('/auth', auth.verifyAuth,
+    async function (req, res, next) {
     try {
         console.log("Logout user ");
         // this will delete everything in the cookie
