@@ -35,6 +35,13 @@ create table unit (
     un_name varchar(40),
     primary key (un_id));
 
+create table bought (
+    b_id serial,
+    b_it_id int not null,
+    b_quant decimal(6,3),
+    b_bought date not null default CURRENT_DATE,
+    primary key (b_id));
+
 -- Foreign Keys
 
 alter table shoplist add constraint shoplist_fk_appuser
@@ -51,4 +58,8 @@ alter table item add constraint item_fk_product
 
 alter table item add constraint item_fk_unit
             foreign key (it_un_id) references unit(un_id) 
+			ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+alter table bought add constraint bought_fk_item
+            foreign key (b_it_id) references item(it_id) 
 			ON DELETE NO ACTION ON UPDATE NO ACTION;
