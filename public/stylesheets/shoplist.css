@@ -38,3 +38,20 @@ body> header section.title {
 }
 
 
+/* Shop lists boxes */
+
+#shoplists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;  
+  align-items: center;
+}
+
+#shoplists li {
+    margin: 5px;
+    padding: 5px;
+    width: 40%;
+    background-color: chocolate;
+    color:white;
+    font-size: large;
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/shoplist.css">
     <script src="javascripts/requests/usersRequests.js"></script>
+    <script src="javascripts/requests/shoplistsRequests.js"></script>
     <script src="javascripts/utils/verifications.js"></script>
     <script src="javascripts/mypage.js"></script>
     <title>My Page</title>
@@ -17,12 +18,13 @@
         </section>
         <nav>
             <section>
-                <input type="button" value="Logout" onclick="alert('logout')" >
+                <input type="button" value="Logout" onclick="logout()" >
             </section>  
         </nav>
     </header>
-<main id="shoplists">
-
+<main >
+<ul id="shoplists">
+</ul>
 </main>
 </body>
 </html>
