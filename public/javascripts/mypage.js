@@ -18,9 +18,16 @@ function populateShoplists(shoplists) {
     for (let sl of shoplists) {
         let li = document.createElement("li");
         li.textContent = sl.name;
+        li.onclick = () => { openShoplist(sl.id);};
         container.appendChild(li);
     }
 }
+
+function openShoplist(id) {
+    sessionStorage.setItem("shoplistId",id);
+    window.location.pathname = "shoplist.html";
+}
+
 
 async function logout() {
     await requestLogout();

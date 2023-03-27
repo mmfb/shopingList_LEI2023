@@ -20,6 +20,23 @@ router.get('/auth',auth.verifyAuth,  async function (req, res, next) {
     }
 });
 
+// Get a shoplist of the authenticated user
+router.get('/auth/:id',auth.verifyAuth,  async function (req, res, next) {
+    try {
+        console.log("Get a shoplist of the authenticated user");
+        let result = await ShopList.getUserShoplist(req.user.id,req.params.id);
+        if (result.status != 200)
+            res.status(result.status).send(result.result);
+        else {
+            res.status(200).send(result.result);
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).send(err);
+    }
+});
+
+
 
 
 
