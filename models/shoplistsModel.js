@@ -11,6 +11,7 @@ function dbItemToItem(it) {
 }
 
 
+
 class Item {
     constructor(id, quant, idProd, name,img, bought, idUnit, unitName) {
         this.id = id;
@@ -90,6 +91,24 @@ class ShopList {
         }
     }
 
+    
+    static async addItem(userId, shopListId, prodId, unitId, quantity) {
+        try {
+            // Todo: verifications
+            // - if the user owns the shopLsit
+            // - if prodId and unitId exist
+            // - if quantity is valid
+     
+            let dbResult = await pool.query(
+                `Insert into item(it_shl_id,it_prd_id,it_quant, it_un_id)
+                 values($1,$2,$3,$4)`, [shopListId,prodId,quantity, unitId]);
+            return {status:200, result: dbResult};
+
+        } catch (err) {
+            console.log(err);
+            return {status: 500, result: {msg: "Something went wrong."}};
+        }
+    }
 
 }
 

@@ -55,3 +55,31 @@ body> header section.title {
     color:white;
     font-size: large;
 }
+
+
+
+/* Items */
+
+#items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  
+    align-items: center;
+  }
+  
+#items li {
+      margin: 5px;
+      padding: 5px;
+      width: 40%;
+      background-color: chocolate;
+      color:white;
+      font-size: large;
+      display: flex;  
+      align-items: flex-start;
+}
+  
+
+#items li img {
+    width: 50%;
+    margin-right: 5px;
+}

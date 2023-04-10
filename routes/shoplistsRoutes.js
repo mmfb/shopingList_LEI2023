@@ -37,6 +37,24 @@ router.get('/auth/:id',auth.verifyAuth,  async function (req, res, next) {
 });
 
 
+router.post('/auth/:id/items',auth.verifyAuth,  async function (req, res, next) {
+    try {
+        console.log("Add item to a shoplist of the authenticated user");
+        let result = await ShopList.addItem(req.user.id,req.params.id,
+                                            req.body.prodId,
+                                            req.body.unitId, req.body.quant);
+        if (result.status != 200)
+            res.status(result.status).send(result.result);
+        else {
+            res.status(200).send(result.result);
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).send(err);
+    }
+});
+
+
 
 
 

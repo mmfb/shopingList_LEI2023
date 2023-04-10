@@ -19,10 +19,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const usersRouter = require("./routes/usersRoutes");
 const shoplistsRouter = require("./routes/shoplistsRoutes");
+const productsRouter = require("./routes/productsRoutes");
 
 
 app.use("/api/users",usersRouter);
 app.use("/api/shoplists",shoplistsRouter);
+app.use("/api/products",productsRouter);
 
 
 // when we don't find anything
